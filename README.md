@@ -107,7 +107,6 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
 });
-
 ```
 
 ## Options
@@ -115,7 +114,7 @@ const styles = StyleSheet.create({
 | Properties               | Type       | Description                           | Default                                 |
 | ------------------------ | ---------- | ------------------------------------- | --------------------------------------- |
 | **id** <br> \*_required_ | `string`   | A unique id for the ActionSheet       |                                         |
-| **data**                 | `array`    | Array of list items                   | `[]`                                    |
+| **data**                 | `array`    | Array of list items                   | `{name: string, ...props}[]`            |
 | **inputValue**           | `string`   | The value to show for the text input. |                                         |
 | **searchable**           | `boolean ` | Searchable state                      | `false`                                 |
 | **loading**              | `boolean`  | Loading state                         | `false`                                 |
@@ -129,29 +128,40 @@ const styles = StyleSheet.create({
 | **onSearch**             | `function` | Textinput search function             |                                         |
 | **renderListItem**       | `function` | Render List item                      |                                         |
 
+## Style options
+
+| Properties            | Type                                        | Description                                             | Default     |
+| --------------------- | ------------------------------------------- | ------------------------------------------------------- | ----------- |
+| **actionSheet**       | `ViewStyle`                                 | Custom style for the action sheet                       | `undefined` |
+| **activityIndicator** | `{color?: string, style?: ViewStyle}`       | Custom style for the activity indicator                 | `undefined` |
+| **close**             | `{text?: TextStyle, container?: ViewStyle}` | Custom style for the close text and container           | `undefined` |
+| **input**             | `TextStyle`                                 | Custom style for the search input                       | `undefined` |
+| **item**              | `{text?: TextStyle, container?: ViewStyle}` | Custom style for the item text and container            | `undefined` |
+| **label**             | `{text?: TextStyle, container?: ViewStyle}` | Custom style for the label text and container           | `undefined` |
+| **noDataFound**       | `{text?: TextStyle, container?: ViewStyle}` | Custom style for the "no data found" text and container | `undefined` |
+
 ## Method
 
-| Properties               | Type       | Description                           |
-| ------------------------ | ---------- | ------------------------------------- |
-| **onOpen**               | `function` | SheetManager show                     |
-| **onClose**              | `function` | SheetManager hide                     |
+| Properties  | Type       | Description       |
+| ----------- | ---------- | ----------------- |
+| **onOpen**  | `function` | SheetManager show |
+| **onClose** | `function` | SheetManager hide |
 
 ## Core Props of using packages
 
-
-| Properties           | Type     | Description                                                                                                          |
-| -------------------- | -------- | -------------------------------------------------------------------------------------------------------------------- |
+| Properties            | Type     | Description                                                                                                          |
+| --------------------- | -------- | -------------------------------------------------------------------------------------------------------------------- | --- |
 | **actionsSheetProps** | `object` | [react-native-actions-sheet](https://github.com/ammarahm-ed/react-native-actions-sheet 'react-native-actions-sheet') |     |
-| **flatListProps**    | `object` | [FlatListProps](https://reactnative.dev/docs/flatlist 'FlatListProps')                                               |     |
-| **searchInputProps** | `object` | [TextInputProps](https://reactnative.dev/docs/textinput 'TextInputProps')                                            |     |
+| **flatListProps**     | `object` | [FlatListProps](https://reactnative.dev/docs/flatlist 'FlatListProps')                                               |     |
+| **searchInputProps**  | `object` | [TextInputProps](https://reactnative.dev/docs/textinput 'TextInputProps')                                            |     |
 
 ## Roadmap
 
- * [ ] Multiple select
- * [ ] Issue 3 (https://github.com/Bur0/react-native-actions-sheet-picker/issues/3)
- * [ ] Issue 4 (https://github.com/Bur0/react-native-actions-sheet-picker/issues/4)
- * [x] renderListItem | props
- * [x] Selected highlight
+- [ ] Multiple select
+- [ ] Issue 3 (https://github.com/Bur0/react-native-actions-sheet-picker/issues/3)
+- [ ] Issue 4 (https://github.com/Bur0/react-native-actions-sheet-picker/issues/4)
+- [x] renderListItem | props
+- [x] Selected highlight
 
 ## Contributing
 
