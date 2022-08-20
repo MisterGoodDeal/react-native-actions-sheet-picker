@@ -1,7 +1,7 @@
 {
-  "name": "react-native-actions-sheet-picker",
+  "name": "react-native-actions-sheet-picker-serial-luncher",
   "version": "0.3.6",
-  "description": "A React Native component that provides a filterable select dropdown/picker.",
+  "description": "Fork from react-native-actions-sheet-picker",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
@@ -50,13 +50,13 @@
     "selector",
     "actions sheet"
   ],
-  "repository": "https://github.com/Bur0/react-native-actions-sheet-picker",
-  "author": "Burak Alp <burakalpkara@gmail.com> (https://github.com/Bur0)",
+  "repository": "https://github.com/MisterGoodDeal/react-native-actions-sheet-picker",
+  "author": "Milan Camus <pro@mistergooddeal.org> (https://github.com/MisterGoodDeal)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Bur0/react-native-actions-sheet-picker/issues"
+    "url": "https://github.com/MisterGoodDeal/react-native-actions-sheet-picker/issues"
   },
-  "homepage": "https://github.com/Bur0/react-native-actions-sheet-picker#readme",
+  "homepage": "https://github.com/MisterGoodDeal/react-native-actions-sheet-picker#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
