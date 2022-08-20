@@ -39,6 +39,7 @@ export const Picker = <T,>({
   flatListProps,
   actionsSheetProps,
   renderListItem,
+  style,
 }: PickerProps<T>) => {
   const [selectedKey, setSelectedKey] = useState(null);
 
@@ -52,17 +53,25 @@ export const Picker = <T,>({
 
   const Item = ({ item, index }: any) => (
     <TouchableOpacity
-      style={{
-        paddingVertical: 20,
-        borderBottomWidth: 0.5,
-        borderColor: '#CDD4D9',
-      }}
+      style={[
+        {
+          paddingVertical: 20,
+          borderBottomWidth: 0.5,
+          borderColor: '#CDD4D9',
+        },
+        style?.item?.container,
+      ]}
       onPress={() => {
         itemOnPress(item);
         setSelectedKey(index);
       }}
     >
-      <Text style={{ fontWeight: selectedKey !== index ? 'normal' : 'bold' }}>
+      <Text
+        style={[
+          { fontWeight: selectedKey !== index ? 'normal' : 'bold' },
+          style?.item?.text,
+        ]}
+      >
         {item.name ? item.name : null}
       </Text>
     </TouchableOpacity>
@@ -83,6 +92,7 @@ export const Picker = <T,>({
       gestureEnabled={true}
       keyboardShouldPersistTaps="always"
       {...actionsSheetProps}
+      containerStyle={style?.actionSheet}
     >
       <SafeAreaView
         style={{
@@ -96,7 +106,7 @@ export const Picker = <T,>({
           ListHeaderComponent={
             <View
               style={{
-                backgroundColor: '#ffffff',
+                backgroundColor: style?.actionSheet?.backgroundColor ?? '#fff',
               }}
             >
               {searchable ? (
@@ -111,14 +121,16 @@ export const Picker = <T,>({
                 >
                   <View style={{ flexBasis: '75%' }}>
                     <TextInput
-                      style={{
-                        height: 40,
-                        borderWidth: 1,
-                        borderColor: '#CDD4D9',
-                        borderRadius: 6,
-                        padding: 10,
-                        color: '#333',
-                      }}
+                      style={
+                        style?.input ?? {
+                          height: 40,
+                          borderWidth: 1,
+                          borderColor: '#CDD4D9',
+                          borderRadius: 6,
+                          padding: 10,
+                          color: '#333',
+                        }
+                      }
                       value={inputValue}
                       placeholderTextColor={placeholderTextColor}
                       onChangeText={onSearch}
@@ -131,23 +143,32 @@ export const Picker = <T,>({
                   </View>
 
                   <TouchableOpacity
-                    style={{ padding: 10 }}
+                    style={[{ padding: 10 }, style?.close?.container]}
                     onPress={() => {
                       onClose();
                     }}
                   >
-                    <Text style={{color: '#333'}}>{closeText}</Text>
+                    <Text style={style?.close?.text ?? { color: '#333' }}>
+                      {closeText}
+                    </Text>
                   </TouchableOpacity>
                 </View>
               ) : null}
 
-              <View style={{ marginTop: 10, paddingBottom: 5 }}>
+              <View
+                style={[
+                  { marginTop: 10, paddingBottom: 5 },
+                  style?.label?.container,
+                ]}
+              >
                 <Text
-                  style={{
-                    color: '#333',
-                    fontSize: 16,
-                    fontWeight: 'bold',
-                  }}
+                  style={
+                    style?.label?.text ?? {
+                      color: '#333',
+                      fontSize: 16,
+                      fontWeight: 'bold',
+                    }
+                  }
                 >
                   {label}
                 </Text>
@@ -155,8 +176,11 @@ export const Picker = <T,>({
 
               {loading ? (
                 <ActivityIndicator
-                  style={{ marginVertical: 20 }}
-                  color="#999999"
+                  style={[
+                    { marginVertical: 20 },
+                    style?.activityIndicator?.style,
+                  ]}
+                  color={style?.activityIndicator?.color ?? '#999'}
                 />
               ) : null}
             </View>
@@ -165,13 +189,18 @@ export const Picker = <T,>({
             if (!loading) {
               return (
                 <View
-                  style={{
-                    flex: 1,
-                    alignItems: 'center',
-                    paddingTop: 20,
-                  }}
+                  style={[
+                    {
+                      flex: 1,
+                      alignItems: 'center',
+                      paddingTop: 20,
+                    },
+                    style?.noDataFound?.container,
+                  ]}
                 >
-                  <Text style={{color: '#333'}}>{noDataFoundText}</Text>
+                  <Text style={style?.noDataFound?.text ?? { color: '#333' }}>
+                    {noDataFoundText}
+                  </Text>
                 </View>
               );
             }
