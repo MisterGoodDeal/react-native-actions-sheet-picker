@@ -1,4 +1,9 @@
-import type { FlatListProps, TextInputProps } from 'react-native';
+import type {
+  FlatListProps,
+  TextInputProps,
+  TextStyle,
+  ViewStyle,
+} from 'react-native';
 import type { ActionSheetProps } from 'react-native-actions-sheet';
 
 type RenderItemProp<T> = {
@@ -22,6 +27,30 @@ export type PickerProps<T> = {
   searchInputProps?: TextInputProps;
   flatListProps?: FlatListProps<T>;
   actionsSheetProps?: ActionSheetProps;
+  style?: {
+    actionSheet?: ViewStyle;
+    activityIndicator?: {
+      color?: string;
+      style?: ViewStyle;
+    };
+    close?: {
+      text?: TextStyle;
+      container?: ViewStyle;
+    };
+    input?: TextStyle;
+    item?: {
+      text?: TextStyle;
+      container?: ViewStyle;
+    };
+    label?: {
+      text?: TextStyle;
+      container?: ViewStyle;
+    };
+    noDataFound?: {
+      text?: TextStyle;
+      container?: ViewStyle;
+    };
+  };
 } & (T extends { name: string }
   ? Partial<RenderItemProp<T>>
   : RenderItemProp<T>);
