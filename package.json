@@ -1,6 +1,6 @@
 {
   "name": "react-native-actions-sheet-picker-serial-luncher",
-  "version": "0.3.6",
+  "version": "0.4.0",
   "description": "Fork from react-native-actions-sheet-picker",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
